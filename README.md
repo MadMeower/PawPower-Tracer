@@ -78,7 +78,9 @@ Required secrets: `wifi_ssid`, `wifi_password`, `tracer_api_key`, `paw_web_usern
 
 **Poll - no dongle:** Paw Power is the RS485 master. It sends read-input-register requests only; it does not write battery settings. Unplug any dongle or external display that also polls this bus. Two independent masters caused communication errors in testing.
 
-**Listen - Solar Guardian:** Paw Power does not transmit. It decodes the dongle's requests and the controller's replies. This preserves Solar Guardian logging, but readings arrive at the dongle's polling cadence, which was sometimes over a minute in testing. No automatic polling takeover occurs when the dongle is silent.
+**Using the Wi-Fi dongle? Turn Paw Power polling OFF by selecting `Listen - Solar Guardian`.** In this mode Paw Power does not transmit; it decodes the dongle's requests and the controller's replies, preserving Solar Guardian cloud logging. The Wi-Fi dongle may take one or more minutes between updates to a given reading, so passive mode can feel very slow. Paw Power cannot refresh a value until the dongle requests it. No automatic polling takeover occurs when the dongle is silent.
+
+The owner has also run the Wi-Fi dongle and Paw Power polling together and observed periods where both appeared to work. Earlier testing produced partial-response timeouts and unexpected frames with both connected, which stopped when the dongle was unplugged. Two independent polling masters are therefore not a supported/reliable setup, even when the readings look fine. For faster, predictable local updates, unplug the dongle and use `Poll - no dongle`.
 
 First boot defaults to Listen. Later boots restore the chosen mode. Disconnect the dongle before selecting or restarting in Poll mode.
 
