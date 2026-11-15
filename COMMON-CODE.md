@@ -1,0 +1,7 @@
+# Common code layout
+pawpower_common/energy_tracker.h is the common energy integration implementation. Existing energy_tracker.h files in the project-specific folders are compatibility includes only. Storage format, global IDs, sample timing and save intervals are unchanged.
+pawpower_common/web_assets.h contains the canonical Paw Ball JavaScript in a C++ raw string. Both project dashboards import /paw/common.js from their own ESP32. The asset handler is registered through ESPHome web_server_base, preserving its authentication middleware. No internet or external hosting is needed.
+Project-specific dashboards retain their own layouts and data adapters. Paw Ball physics, audio, controls and rendering now exist once in the common file. Existing device controls, CAN and polling timing are unchanged.
+Each release ZIP includes identical common files. Extracting multiple releases merges the same pawpower_common folder. Keep releases aligned; do not overwrite newer common files with an older release. Firmware already installed is not affected until recompiled/uploaded.
+For local edits, change the common header in the ESPHome configuration folder once. The next compile of any project picks it up. No bundling script is needed. Game JavaScript is inside the PAWCOMMONJS raw-string block in web_assets.h.
+This step shares logging and Paw Ball; app-specific styles/layouts are not merged into a universal dashboard.

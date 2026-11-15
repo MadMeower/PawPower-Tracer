@@ -1,0 +1,14 @@
+secrets.yaml
+secrets.*.yaml
+!secrets.yaml.example
+.esphome/
+.esphome-build/
+.pioenvs/
+.piolibdeps/
+build/
+__pycache__/
+*.bin
+*.elf
+*.log
+.DS_Store
+Thumbs.db
