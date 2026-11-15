@@ -2,7 +2,7 @@
 
 A local solar-charge-controller dashboard for an EPEVER Tracer, running on an ESP32-S3 with RS485. No Home Assistant, Raspberry Pi, or cloud account is required.
 
-I wanted a more useful way to see what my Tracer was doing. Paw Power reads the controller, serves its own web page, and keeps daily solar-generation totals and peaks on the ESP32. There is also Paw Ball, because watching the electrons should come with a game against Donut.
+I wanted a more useful way to see what my Tracer was doing. Paw Power reads the controller, serves its own web page, and keeps daily solar-generation totals and peaks on the ESP32. There is also Paw Ball, because watching the electrons should come with a game against my cat Donut.
 
 **Status: early DIY version, tested by the project owner with a Tracer10415AN and an industrial ESP32-S3 board with onboard RS485/CAN.** Other controller models and boards are not verified. CAN is unused in this project. This is separate from the Junctek-to-EG4 battery bridge in [PawPower](https://github.com/MadMeower/PawPower).
 
@@ -15,7 +15,7 @@ I wanted a more useful way to see what my Tracer was doing. Paw Power reads the 
 - 31 calendar days of solar kWh, coverage, and daily peaks, retained in ESP32 flash.
 - CSV history download.
 - Browser-session graphs: solar power, battery voltage/current, and controller temperature; zoom buttons, wheel zoom, and drag-to-pan.
-- Paw Ball against Donut, including optional browser-generated sound.
+- Paw Ball against my cat Donut, including optional browser-generated sound.
 - Saved connection-mode selection, restored after a restart.
 
 **Storage distinction:** daily totals and peaks live on the ESP32 and checkpoint every five minutes. Detailed graphs hold up to two hours only while that browser page remains open; reloading clears them. This board does not have the touchscreen project's SD-card history or ZIP backup.
